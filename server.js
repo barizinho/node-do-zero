@@ -1,18 +1,31 @@
-// import { createServer } from 'node:http';
-
-// const server = createServer((request, response) => {
-//     response.write('Servior rodando na porta 3333!')
-    
-//     return response.end()
-// })
-
-// server.listen(3333)
-
 import { fastify } from 'fastify'
+import { DatabaseMemory } from './database-memory.js'
 
 const server = fastify()
 
-server.get('/', async () => {
+const databese = new DatabaseMemory()
+
+server.post('/videos', async (request, reply) => {
+    const { title, description, duration } = request.body
+
+    databese.create({
+        title,
+        description,
+        duration,
+    })
+    
+    return reply.status(201).send()
+})
+
+server.get('/videos', async () => {
+    return "Servidor rodando na porta 3333!"
+})
+
+server.put('/videos/:id', async () => {
+    return "Servidor rodando na porta 3333!"
+})
+
+server.delete('/videos/:id', async () => {
     return "Servidor rodando na porta 3333!"
 })
 
