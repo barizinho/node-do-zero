@@ -12,10 +12,15 @@ import { fastify } from 'fastify'
 
 const server = fastify()
 
-server.get('/', () => {
+server.get('/', async () => {
     return "Servidor rodando na porta 3333!"
 })
 
 server.listen({
     port: 3333,
+}).then (() => {
+    console.log("Servidor rodando em localhost:3333")
+}).catch(err => {
+    console.error(err)
+    process.exit(1)
 })
