@@ -24,4 +24,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3333/videos/568916bc-e52e-4aaf-a32f-ffa3a3df3818
+DELETE http://localhost:3333/videos/0c268b7d-178b-49f7-9070-672e7eb23bf3
